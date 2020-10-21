@@ -12,6 +12,7 @@ class CashRegister
 
   def apply_discount
     self.total = self.discount == nil ? self.total : self.total - (self.total * self.discount/100)
+puts "After the discount, the total comes to $#{self.total}"
     "After the discount, the total comes to $#{self.total}"
   end
 
