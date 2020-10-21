@@ -1,9 +1,10 @@
 class CashRegister
-  attr_accessor :total, :discount, :items
+  attr_accessor :total, :discount, :items, :last_item
 
   def initialize(employee_discount = nil)
     @total = 0
     @items = []
+    @last_item = {}
     @discount = employee_discount
   end
 
