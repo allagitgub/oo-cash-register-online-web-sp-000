@@ -13,6 +13,7 @@ class CashRegister
     quantity.times do
       self.items << title
     end
+    last_item = {title => quantity * price}
   end
 
   def apply_discount
