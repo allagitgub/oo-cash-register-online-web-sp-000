@@ -1,5 +1,5 @@
 class CashRegister
-  attr_accessor :total, :discount, :items, :last_item
+  attr_accessor :total, :discount, :items, :last_item_price
 
   def initialize(employee_discount = nil)
     @total = 0
@@ -13,7 +13,7 @@ class CashRegister
     quantity.times do
       self.items << title
     end
-    last_item = {title => quantity * price}
+    self.last_item_price = quantity * price
   end
 
   def apply_discount
@@ -23,6 +23,10 @@ class CashRegister
     else
       "There is no discount to apply."
     end
+  end
+
+  def void_last_transaction
+    self.total =+ self.total - last_item(last_item.key(0))
   end
 
 end
